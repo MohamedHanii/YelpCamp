@@ -54,8 +54,8 @@ Example: if the output is : Server running at http://localhost:3000 then visit h
 
 Feel free to test the functionality of this website by signing up and creating/editing campgrounds, comments and ratings.
 
-* Email : test@yahoo.com      Password : test
-* Email : alex@gmail.com      Password : password
-* Email :  mohamed@yahoo.com  Password : password01
+* username : mohamed      Password : mohamed
+* username : ahmed      Password : ahmed
+* Email :  john  Password : john
 
 You can create your own account and add/edit campgrounds, ratings or comments
