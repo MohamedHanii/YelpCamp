@@ -48,9 +48,9 @@ Node Modules:
 
 ### Running Application:
 
-Application running and hosting using heroku: https://apple-crisp-04291.herokuapp.com/
-
-Database hosting using atlas mongodb cluster
+* Application running and hosting using heroku: https://apple-crisp-04291.herokuapp.com/
+* Database hosting using atlas mongodb cluster.
+* Images are uploaded on cloud using cloudinary.
 
 ## Running the Tests
 
