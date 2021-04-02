@@ -4,6 +4,9 @@ const catchAsync = require('../utils/catchAsync');
 const review = require('../controller/reviewController');
 const { validateReview, isLoggedIn, isReviewAuthor } = require('../middleware/middleware');
 
+/**
+ * Routes for reviews starting with prefix '/campgrounds/:id/reviews/'
+ */
 
 router.post('/', isLoggedIn, validateReview, catchAsync(review.create));
 

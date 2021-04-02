@@ -4,6 +4,10 @@ const user = require('../controller/userController')
 const catchAsync = require('../utils/catchAsync')
 const passport = require('passport')
 
+/**
+ * Routes for user starting with prefix '/'
+ */
+
 router.route('/register')
     .get(user.viewRegister)
     .post(catchAsync(user.register));

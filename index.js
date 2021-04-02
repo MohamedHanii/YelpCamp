@@ -22,8 +22,8 @@ const userRoutes = require('./routes/users');
 
 const MongoDBStore = require("connect-mongo");
 
+// Connection to database
 const dbURL = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp'
-
 mongoose.connect(dbURL, {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -31,15 +31,14 @@ mongoose.connect(dbURL, {
     useFindAndModify: false
 });
 
-
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
     console.log("Database Connected");
 });
 
-const app = express();
 
+const app = express();
 
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
@@ -53,13 +52,13 @@ app.use(mongoSanitize({
 }))
 
 const secret = process.env.SERCRET || 'secretkeysessionkey'
-const store =  MongoDBStore.create({
-    mongoUrl:dbURL,
+const store = MongoDBStore.create({
+    mongoUrl: dbURL,
     secret,
-    touchAfter: 24*3600
+    touchAfter: 24 * 3600
 })
 
-store.on("error",(e)=>{
+store.on("error", (e) => {
     console.log("Session Store error", e);
 })
 
@@ -105,6 +104,7 @@ const connectSrcUrls = [
     "https://events.mapbox.com/",
 ];
 const fontSrcUrls = [];
+
 app.use(
     helmet.contentSecurityPolicy({
         directives: {
@@ -118,7 +118,7 @@ app.use(
                 "'self'",
                 "blob:",
                 "data:",
-                "https://res.cloudinary.com/ds2pvxp2d/", 
+                "https://res.cloudinary.com/ds2pvxp2d/",
                 "https://images.unsplash.com/",
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
@@ -129,7 +129,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
-
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -164,6 +163,6 @@ app.use((err, req, res, next) => {
 });
 
 const port = process.env.PORT || 3000;
-app.listen(port, (req,res) => {
+app.listen(port, (req, res) => {
     console.log(`Serving on port ${port}`)
 });

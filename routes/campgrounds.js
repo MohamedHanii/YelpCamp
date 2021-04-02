@@ -2,12 +2,15 @@ const express = require('express');
 const router = express.Router();
 const catchAsync = require('../utils/catchAsync');
 const campground = require('../controller/campgroundController');
-
 const multer = require('multer');
 const { storage } = require('../cloudinary');
 const upload = multer({ storage });
 
 const { isLoggedIn, isAuthor, validateCampground } = require('../middleware/middleware');
+
+/**
+ * Routes for campgrounds starting with prefix '/campgrounds/'
+ */
 
 
 router.route('/')

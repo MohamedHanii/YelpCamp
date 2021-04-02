@@ -10,7 +10,9 @@ Link : https://apple-crisp-04291.herokuapp.com/
 - User can login/signup using username and password
 - User can post a campground online
 - User can edit his/her campground
-- User can delete his/her campground
+- User can delete his/her campground 
+- All images upload and saved using cloudinary
+- Maps and location using Mapbox
 
 ## Used For Implementing
 
@@ -19,43 +21,42 @@ Technologies that used :
 * ExpressJS
 * MongoDB
 
-Node Modules
+Node Modules:
+
+* @mapbox/mapbox-sdk
+* cloudinary
+* connect-flash
+* connect-mongo
+* dotenv
 * ejs
 * ejs-mate
 * express
+* express-mongo-sanitize
+* express-session
+* helmet
 * joi
 * method-override
 * mongoose
+* multer
+* multer-storage-cloudinary
 * nodemon
-
-
-This guide will help you to install Node.js and npm: https://docs.npmjs.com/getting-started/installing-node
+* passport
+* passport-local
+* passport-local-mongoose
+* sanitize-html
 
 
 ### Running Application:
 
-Run ```mongod``` command to start the MongoDB.
+Application running and hosting using heroku: https://apple-crisp-04291.herokuapp.com/
 
-In another terminal window, run these commands:
-
-```
-git clone https://github.com/MohamedHanii/YelpCamp.git
-cd yelpcamp
-npm install
-npm start
-
-```
-
-Browse to the url given in the output.
-
-Example: if the output is : Server running at http://localhost:3000 then visit http://localhost:3000 in the browser.
+Database hosting using atlas mongodb cluster
 
 ## Running the Tests
 
-Feel free to test the functionality of this website by signing up and creating/editing campgrounds, comments and ratings.
+Feel free to test the functionality of this website by signing up and creating/editing campgrounds, reviews and user using one of the following accounts:
 
-* username : mohamed      Password : mohamed
-* username : ahmed      Password : ahmed
-* Email :  john  Password : john
+* username : mohamed        Password : mohamed
+* username : ahmed          Password : ahmed
+* Email :  john             Password : john
 
-You can create your own account and add/edit campgrounds, ratings or comments

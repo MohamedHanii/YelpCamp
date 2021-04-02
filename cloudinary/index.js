@@ -1,6 +1,12 @@
 const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
+/**
+ * Configure cloudinary 
+ * Make new Storage in the cloud name of yelpcamp
+ * allowed formats is jpeg, png, jpg
+ */
+
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
     api_key: process.env.CLOUDINARY_KEY,

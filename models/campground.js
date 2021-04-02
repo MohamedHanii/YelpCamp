@@ -11,7 +11,7 @@ ImageSchema.virtual('thumbnail').get(function () {
     return this.url.replace('/upload', '/upload/w_200');
 });
 
-const opts = {toJSON:{virtuals: true}}
+const opts = { toJSON: { virtuals: true } }
 
 const CampgroundSchema = new Schema({
     title: String,
@@ -45,13 +45,13 @@ const CampgroundSchema = new Schema({
 CampgroundSchema.virtual('properties.popUpMarkup').get(function () {
     return `
     <strong><a href="/campgrounds/${this._id}">${this.title} </a></strong>
-    <p>${this.description.substring(0,20)}...</p>`;
+    <p>${this.description.substring(0, 20)}...</p>`;
 });
 
-/*
-    * After Calling findOneAndDelete function in route file for campground
-    * This middleware will handle deleting all the reviews inside that campground
-    * starting by remove every review that id exists inside that campground
+/**
+ * After Calling findOneAndDelete function in route file for campground
+ * This middleware will handle deleting all the reviews inside that campground
+ * starting by remove every review that id exists inside that campground
 */
 CampgroundSchema.post('findOneAndDelete', async function (doc) {
     if (doc) {
